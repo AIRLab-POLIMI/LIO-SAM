@@ -26,19 +26,19 @@ def generate_launch_description():
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            arguments='0.0 0.0 0.0 0.0 0.0 0.0 map odom'.split(' '),
+            arguments='0.0 0.0 0.0 0.0 0.0 0.0 map UGV_odom'.split(' '),
             parameters=[parameter_file],
             output='screen'
             ),
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            parameters=[{
-                'robot_description': Command(['xacro', ' ', xacro_path])
-            }]
-        ),
+        # Node(
+        #     package='robot_state_publisher',
+        #     executable='robot_state_publisher',
+        #     name='robot_state_publisher',
+        #     output='screen',
+        #     parameters=[{
+        #         'robot_description': Command(['xacro', ' ', xacro_path])
+        #     }]
+        # ),
         Node(
             package='lio_sam',
             executable='lio_sam_imuPreintegration',
